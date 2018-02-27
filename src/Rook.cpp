@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Piece.h"
+#include "Rook.h"
 using namespace std;
 
 class Rook:public Piece {

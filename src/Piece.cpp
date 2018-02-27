@@ -34,3 +34,8 @@ std::string Piece::getName(){
       break;
   }
 }
+
+void Piece::move (int x, int y){
+    this->x = x;
+    this->y = y;
+}

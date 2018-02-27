@@ -12,5 +12,5 @@ public:
     std::string getColour();
     std::string getName();
     void move (int x, int y);
-    bool valid (int x, int y);
+    virtual bool valid (int x, int y) = 0;
 };
