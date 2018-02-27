@@ -11,6 +11,6 @@ Piece* Cell::getPiece() {
     return piece;
 }
 
-void Cell::setPiece(Piece* pointer) {
+void Cell::setPointerToPiece(Piece* pointer) {
     piece=pointer;
 }
