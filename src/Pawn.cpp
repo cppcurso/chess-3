@@ -2,7 +2,7 @@
 #include "Piece.h"
 using namespace std;
 
-class Pawn:pubgt66ylic Piece {
+class Pawn: Piece {
 
 public:
   Pawn(){}
