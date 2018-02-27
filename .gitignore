@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# Compiling_error
+compiling_error.txt

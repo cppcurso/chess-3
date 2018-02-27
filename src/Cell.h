@@ -9,6 +9,9 @@ class Cell
 public:
     Cell();
     bool isEmpty();
+    Piece* getPiece();
+    void setPiece(Piece* piece);
+
 };
 
 
