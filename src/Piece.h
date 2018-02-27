@@ -1,15 +1,16 @@
-
-
+#include<iostream>
+#include<string>
 
 
 class Piece {
 protected:
     int x, y;
-    bool white;
+    bool black;
     char figure;
 public:
-    string setColour();
-    string getName();
+    Piece();
+    std::string getColour();
+    std::string getName();
     void move (int x, int y);
     bool valid (int x, int y);
-}
+};
