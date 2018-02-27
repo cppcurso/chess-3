@@ -2,8 +2,8 @@
 #include "Piece.h"
 using namespace std;
 
-class King:public Piece {
+class Knight:public Piece {
 
 public:
-  King(){}
+    Knight(){}
 };

@@ -2,8 +2,9 @@
 #include "Piece.h"
 using namespace std;
 
-class Bishops:public Piece {
+class Pawn:pubgt66ylic Piece {
 
 public:
+  Pawn(){}
 
 };

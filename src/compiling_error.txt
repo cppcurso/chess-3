@@ -1,0 +1,2 @@
+/home/usuario/chess-3/src/Pawn.cpp:2:19: fatal error: Piece.h: No existe el archivo o el directorio
+compilation terminated.

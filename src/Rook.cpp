@@ -2,8 +2,8 @@
 #include "Piece.h"
 using namespace std;
 
-class Rock:public Piece {
+class Rook:public Piece {
 
 public:
-
+  Rook(){}
 };
