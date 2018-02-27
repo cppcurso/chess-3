@@ -1,5 +1,5 @@
 # chess-3
-El ajedrez en C++ de la fila 3
+Chess game in C++ by row 3
 # Developers
 Ireneo García Ferrer
 Jorge Castellano Suárez
