@@ -7,8 +7,7 @@ class Pawn: public Piece
 {
 
 public:
-  Pawn();
-
+  Pawn(int x, int y, bool colour);
 };
 
 #endif
