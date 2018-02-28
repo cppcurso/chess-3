@@ -7,7 +7,7 @@ class Queen : public Piece
 {
 
 public:
-    Queen();
+    Queen(int x, int y, bool colour);
 };
 
 #endif
