@@ -2,7 +2,7 @@
 #define KING_H_
 #include "Piece.h"
 
-class King : public Piece
+class King: public Piece
 {
 
 public:
