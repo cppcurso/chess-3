@@ -1,5 +1,8 @@
+#ifndef PIECE_H_
+#define PIECE_H_
+
 #include<iostream>
-#include<string>
+
 
 
 class Piece {
@@ -14,3 +17,6 @@ public:
     void move (int x, int y);
     virtual bool valid (int x, int y) = 0;
 };
+
+
+#endif
