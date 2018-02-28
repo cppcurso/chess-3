@@ -6,7 +6,7 @@ class King : public Piece
 {
 
 public:
-    King();
+
 };
 
 #endif

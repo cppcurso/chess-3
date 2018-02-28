@@ -6,7 +6,7 @@ class Knight : public Piece
 {
 
 public:
-    Knight();
+    Knight(int x, int y, bool colour);
 };
 
 #endif
