@@ -31,9 +31,9 @@ void Board::init(){
 
 void Board::print(){
     for (size_t i = 0; i < 8; i++) {
-        for (size_t j = 0; j < ; j++) {
+        for (size_t j = 0; j < 8; j++) {
             if(board[i][j].getPiece()== NULL) {
-                std::cout " ";
+                std::cout << " ";
             }else{
             std::cout << board[i][j].getPiece()->getFigure();
             std::cout << "--";
@@ -41,3 +41,4 @@ void Board::print(){
         }
     std::cout << "\n";
     }
+}
