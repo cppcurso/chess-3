@@ -13,6 +13,6 @@ Piece* Cell::getPiece() {
     return piece;
 }
 
-void Cell::setPointerToPiece(Piece* pointer) {
-    piece=pointer;
+void Cell::setPointerToPiece(Piece p) {
+    piece=&p;
 }
