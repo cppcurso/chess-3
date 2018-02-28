@@ -36,6 +36,7 @@ void Board::print(){
                 std::cout << " ";
             }else{
             std::cout << board[i][j].getPiece()->getFigure();
+            std::cout << board[i][j].getPiece()->getColour();
             std::cout << "--";
             }
         }

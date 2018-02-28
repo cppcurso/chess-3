@@ -11,9 +11,9 @@ Piece::Piece(int x, int y , bool colour){
 }
 std::string Piece::getColour(){
   if(black) {
-      return "Black";
+      return "b";
   }else {
-      return "White";
+      return "w";
   }
 }
 
