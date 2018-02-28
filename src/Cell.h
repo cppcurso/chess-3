@@ -7,7 +7,7 @@ class Cell
 {
     Piece* piece;
 public:
-    Cell();
+    // Cell();
     bool isEmpty();
     Piece* getPiece();
     void setPointerToPiece(Piece p);
