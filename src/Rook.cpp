@@ -3,5 +3,5 @@
 Rook::Rook(){}
 
 Rook::Rook(int x, int y, bool colour) : Piece(x,y, colour){
-    figure = 'r';
+    figure = 'R';
 }
