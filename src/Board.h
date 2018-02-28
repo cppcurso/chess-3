@@ -4,6 +4,11 @@
 #include <iostream>
 #include "Cell.h"
 #include "Rook.h"
+#include "Knight.h"
+#include "Bishop.h"
+#include "Queen.h"
+#include "King.h"
+#include "Pawn.h"
 
 
 using namespace std;
