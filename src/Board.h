@@ -1,3 +1,6 @@
+#ifndef BOARD_H_
+#define BOARD_H_
+
 #include <iostream>
 #include "Cell.h"
 
@@ -11,3 +14,5 @@ public:
     void print();
     void move(/*xPos, yPos, Piece*/);
 };
+
+#endif
