@@ -28,3 +28,16 @@ void Board::init(){
         board[1][i].setPointerToPiece(Pawn(1,i,1));
     }
 }
+
+void Board::print(){
+    for (size_t i = 0; i < 8; i++) {
+        for (size_t j = 0; j < ; j++) {
+            if(board[i][j].getPiece()== NULL) {
+                std::cout " ";
+            }else{
+            std::cout << board[i][j].getPiece()->getFigure();
+            std::cout << "--";
+            }
+        }
+    std::cout << "\n";
+    }

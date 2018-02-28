@@ -44,3 +44,6 @@ void Piece::move (int x, int y){
     this->x = x;
     this->y = y;
 }
+char Piece::getFigure(){
+    return figure;
+}

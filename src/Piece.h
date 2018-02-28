@@ -15,6 +15,7 @@ public:
     Piece(int x, int y , bool colour = true);
     std::string getColour();
     std::string getName();
+    char getFigure();
     void move (int x, int y);
     // TO DO virtual bool valid (int x, int y) = 0;
 };
