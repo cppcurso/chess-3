@@ -2,9 +2,9 @@
 
 
 
-Piece::Piece() {}
+//Piece::Piece() {}
 
-Piece(int x, int y , bool colour){
+Piece::Piece(int x, int y , bool colour){
     this->x = x;
     this->y = y;
     this->black = colour;

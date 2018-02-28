@@ -11,7 +11,7 @@ protected:
     bool black;
     char figure;
 public:
-    Piece();
+    //Piece();
     Piece(int x, int y , bool colour = true);
     std::string getColour();
     std::string getName();

@@ -5,5 +5,6 @@
 
 int main() {
     Board board;
+    board.init();
     return 0;
 }

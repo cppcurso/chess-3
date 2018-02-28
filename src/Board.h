@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "Cell.h"
+#include "Rook.h"
+
 
 using namespace std;
 
