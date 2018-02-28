@@ -12,6 +12,7 @@ protected:
     char figure;
 public:
     Piece();
+    Piece(int x, int y , bool colour = true);
     std::string getColour();
     std::string getName();
     void move (int x, int y);

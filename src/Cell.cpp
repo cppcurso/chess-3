@@ -14,5 +14,5 @@ Piece* Cell::getPiece() {
 }
 
 void Cell::setPointerToPiece(Piece p) {
-    piece=&p;
+    piece = new Piece(p);
 }

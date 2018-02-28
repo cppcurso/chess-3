@@ -6,6 +6,7 @@ class Rook : public Piece {
 
 public:
     Rook();
+    Rook(int x, int y, bool colour);
 };
 
 #endif

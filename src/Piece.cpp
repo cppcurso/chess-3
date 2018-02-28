@@ -4,6 +4,11 @@
 
 Piece::Piece() {}
 
+Piece(int x, int y , bool colour){
+    this->x = x;
+    this->y = y;
+    this->black = colour;
+}
 std::string Piece::getColour(){
   if(black) {
       return "Black";
