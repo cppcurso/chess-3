@@ -6,6 +6,8 @@ class Rook : public Piece {
 
 public:
     Rook(unsigned short x, unsigned short  y, bool colour);
+    bool valid (unsigned short x, unsigned short y);
+
 };
 
 #endif
