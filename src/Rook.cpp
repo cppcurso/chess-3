@@ -2,6 +2,6 @@
 
 //Rook::Rook(){}
 
-Rook::Rook(int x, int y, bool colour) : Piece(x,y, colour){
+Rook::Rook(unsigned short  x, unsigned short  y, bool colour) : Piece(x,y, colour){
     figure = 'R';
 }
