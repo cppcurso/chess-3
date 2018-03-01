@@ -7,6 +7,7 @@ class Bishop : public Piece
 
 public:
     Bishop(unsigned short x, unsigned short y, bool colour);
+    bool valid(unsigned short x, unsigned short y);
 };
 
 
