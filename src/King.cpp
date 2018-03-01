@@ -12,6 +12,7 @@ bool King::valid( unsigned short x, unsigned short y ) {
 
     if ( this->x == x && this->y == y ) {
         std::cout << "Incorrect movement" << '\n';
+        return false;
     }
 
     if( (this->x + 1 == x && this->y == y) ||   // Move down
