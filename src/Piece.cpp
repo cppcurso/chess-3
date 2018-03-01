@@ -18,25 +18,21 @@ std::string Piece::getColour(){
 }
 
 std::string Piece::getName(){
-  switch(figure){
-    case 'P':
-      return "pawn";
-      break;
-    case 'K':
-      return "king";
-      break;
-    case 'Q':
-      return "queen";
-      break;
-    case 'B':
-      return "bishop";
-      break;
-    case 'R':
-      return "rook";
-      break;
-    case 'k':
-      return "knight";
-      break;
+    switch(figure){
+        case 'P':
+            return "pawn";
+        case 'K':
+            return "king";
+        case 'Q':
+            return "queen";
+        case 'B':
+            return "bishop";
+        case 'R':
+            return "rook";
+        case 'k':
+            return "knight";
+        default:
+            return "";
   }
 }
 
