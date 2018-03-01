@@ -1,31 +1,10 @@
 
 CC = g++
-CFLAGS = -Wall -c
+CFLAGS = -Wall -c -std=c++11
 TARGET = main
 
 $(TARGET): $(TARGET).o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Board.o
 	$(CC) -Wall $(TARGET).o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Board.o -o $(TARGET)
-
-# $(TARGET): $(TARGET).o Rook.o
-# 	$(CC) -Wall $(TARGET).o Rook.o -o $(TARGET)
-#
-# $(TARGET): $(TARGET).o Knight.o
-# 	$(CC) -Wall $(TARGET).o Knight.o -o $(TARGET)
-#
-# $(TARGET): $(TARGET).o Bishop.o
-# 	$(CC) -Wall $(TARGET).o Bishop.o -o $(TARGET)
-#
-# $(TARGET): $(TARGET).o Queen.o
-# 	$(CC) -Wall $(TARGET).o Queen.o -o $(TARGET)
-#
-# $(TARGET): $(TARGET).o King.o
-# 	$(CC) -Wall $(TARGET).o King.o -o $(TARGET)
-#
-# $(TARGET): $(TARGET).o Pawn.o
-# 	$(CC) -Wall $(TARGET).o Pawn.o -o $(TARGET)
-#
-# $(TARGET): $(TARGET).o Board.o
-# 	$(CC) -Wall $(TARGET).o Board.o -o $(TARGET)
 
 $(TARGET).o: $(TARGET).cpp
 	$(CC) $(CFLAGS) $(TARGET).cpp
