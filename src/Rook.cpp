@@ -16,6 +16,6 @@ bool Rook::valid(unsigned short x, unsigned short y) {
     if (x != this->x && y != this->y) { // MOVE != horizontal && != vertical
         return false;
     }
-        
+
     return true;
 }
