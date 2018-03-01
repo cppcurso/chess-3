@@ -6,7 +6,8 @@ class King: public Piece
 {
 
 public:
-    King(int x, int y, bool colour);
+    King(unsigned short x, unsigned short y, bool colour);
+    bool valid(unsigned int x, unsigned int y);
 };
 
 #endif

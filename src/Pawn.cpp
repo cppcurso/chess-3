@@ -1,5 +1,5 @@
 #include "Pawn.h"
 
-Pawn::Pawn(int x, int y, bool colour) : Piece(x,y, colour){
+Pawn::Pawn(unsigned short x, unsigned short y, bool colour) : Piece(x,y, colour){
     figure = 'P';
 }

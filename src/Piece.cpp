@@ -4,7 +4,7 @@
 
 //Piece::Piece() {}
 
-Piece::Piece(int x, int y , bool colour){
+Piece::Piece(unsigned short x, unsigned short y , bool colour){
     this->x = x;
     this->y = y;
     this->black = colour;
@@ -40,7 +40,7 @@ std::string Piece::getName(){
   }
 }
 
-void Piece::move (int x, int y){
+void Piece::move (unsigned short x, unsigned short y){
     this->x = x;
     this->y = y;
 }

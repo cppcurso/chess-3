@@ -6,7 +6,7 @@ class Bishop : public Piece
 {
 
 public:
-    Bishop(int x, int y, bool colour);
+    Bishop(unsigned short x, unsigned short y, bool colour);
 };
 
 

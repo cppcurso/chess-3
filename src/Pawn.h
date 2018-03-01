@@ -7,7 +7,7 @@ class Pawn: public Piece
 {
 
 public:
-  Pawn(int x, int y, bool colour);
+  Pawn(unsigned short x, unsigned short y, bool colour);
 };
 
 #endif

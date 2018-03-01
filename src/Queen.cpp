@@ -1,6 +1,6 @@
 #include "Queen.h"
 
 
-Queen::Queen(int x, int y, bool colour) : Piece(x,y, colour){
+Queen::Queen(unsigned short x, unsigned short y, bool colour) : Piece(x,y, colour){
     figure = 'Q';
 }

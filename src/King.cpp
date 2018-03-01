@@ -1,5 +1,5 @@
 #include "King.h"
 
-King::King(int x, int y, bool colour) : Piece(x, y, colour){
+King::King(unsigned short x, unsigned short y, bool colour) : Piece(x, y, colour){
     figure = 'K';
 }

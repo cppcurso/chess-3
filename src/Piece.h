@@ -7,17 +7,17 @@
 
 class Piece {
 protected:
-    int x, y;
+    unsigned short x, y;
     bool black;
     char figure;
 public:
     //Piece();
-    Piece(int x, int y , bool colour = true);
+    Piece(unsigned short x, unsigned short y , bool colour = true);
     std::string getColour();
     std::string getName();
     char getFigure();
-    void move (int x, int y);
-    // TO DO virtual bool valid (int x, int y) = 0;
+    void move (unsigned short x, unsigned short y);
+    // TO DO virtual bool valid (unsigned short x, unsigned short y) = 0;
 };
 /* TO DO
 board.cells[1][5].getPiece()->move(6,5);
