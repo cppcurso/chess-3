@@ -11,7 +11,7 @@ public:
     bool isEmpty();
     Piece* getPiece();
     void setPointerToPiece(Piece p);
-
+    void setCellToNull();
 };
 
 #endif

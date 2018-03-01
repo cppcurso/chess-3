@@ -19,6 +19,12 @@ public:
     void move (int x, int y);
     // TO DO virtual bool valid (int x, int y) = 0;
 };
-
+/* TO DO
+board.cells[1][5].getPiece()->move(6,5);
+board.cells[6][5].setPointerToPiece(*(board.cells[1][5].getPiece()));
+board.cells[1][5].setCellToNull();
+board.print();
+//std::cout << board.cells[6][5].getPiece()->x;
+//std::cout << board.cells[6][5].getPiece()->y;*/
 
 #endif

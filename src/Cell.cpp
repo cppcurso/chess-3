@@ -16,3 +16,6 @@ Piece* Cell::getPiece() {
 void Cell::setPointerToPiece(Piece p) {
     piece = new Piece(p);
 }
+void Cell::setCellToNull(){
+    this->piece = NULL;
+}

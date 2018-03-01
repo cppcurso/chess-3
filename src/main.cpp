@@ -7,4 +7,5 @@ int main() {
     Board board;
     board.init();
     board.print();
+    
 }
