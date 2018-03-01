@@ -6,7 +6,8 @@ class Knight : public Piece
 {
 
 public:
-    Knight(int x, int y, bool colour);
+    Knight(unsigned short x, unsigned short y, bool colour);
+    bool valid(unsigned short x, unsigned short y);
 };
 
 #endif
