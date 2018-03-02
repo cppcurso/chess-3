@@ -4,8 +4,6 @@
 #include "Rook.h"
 
 int main() {
-    Board board;
-    board.init();
-    board.print();
-    
+    Board::getInstance().init();
+    Board::getInstance().print();    
 }
