@@ -47,3 +47,8 @@ void Board::print(){
 Cell Board::getCell(unsigned short i, unsigned short j) {
     return cells[i][j];
 }
+void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
+    this->cells[x0][y0].getPiece()->move(x,y);
+    this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
+    this->cells[x0][y0].setCellToNull();
+}

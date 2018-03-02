@@ -26,7 +26,7 @@ public:
     void init(); // inicializar el tablero
     bool valid(/*xPos, yPos, Piece*/);
     void print();
-    void move(/*xPos, yPos, Piece*/);
+    void moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y);
     Cell getCell(unsigned short i, unsigned short j);
 };
 #endif
