@@ -10,7 +10,7 @@ public:
     Cell();
     bool isEmpty();
     Piece* getPiece();
-    void setPointerToPiece(Piece p);
+    void setPiece(Piece* p);
     void setCellToNull();
 };
 

@@ -13,8 +13,8 @@ Piece* Cell::getPiece() {
     return piece;
 }
 
-void Cell::setPointerToPiece(Piece p) {
-    piece = new Piece(p);
+void Cell::setPiece(Piece* p) {
+    piece = p;
 }
 void Cell::setCellToNull(){
     this->piece = NULL;

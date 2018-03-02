@@ -16,10 +16,12 @@ bool Pawn::valid(unsigned short x, unsigned short y){
     }
 
     if ( !black && this->x - 1 == x && this->y == y ){
-    	return true;
+        std::cout << "OK" << '\n';
+        return true;
     }
 
     if ( black && this->x + 1 == x && this->y == y ){
+        std::cout << "OK" << '\n';
     	return true;
     }
 

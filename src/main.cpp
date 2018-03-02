@@ -5,5 +5,6 @@
 
 int main() {
     Board::getInstance().init();
-    Board::getInstance().print();    
+    Board::getInstance().print();
+    Board::getInstance().cells[1][5].getPiece()->valid(2,5);
 }
