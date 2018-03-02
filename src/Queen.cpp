@@ -12,7 +12,7 @@ bool Queen::valid(unsigned short x, unsigned short y){
     if (x >= 8 || y >= 8 ) { // out of board
         return false;
     }
-    if ((x != this->x && y != this->y) && (((this->x - x) + this->y != y) || ((x - this->x) + this->y != y))) { // MOVE != ROOK && MOVE !=BISHOP
+    if ((x != this->x && y != this->y) && (((this->x - x) + this->y != y) && ((x - this->x) + this->y != y))) { // MOVE != ROOK && MOVE !=BISHOP
         return false;
     }
 
