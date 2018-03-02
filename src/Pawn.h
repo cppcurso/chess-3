@@ -8,6 +8,7 @@ class Pawn: public Piece
 
 public:
   Pawn(unsigned short x, unsigned short y, bool colour);
+  bool valid(unsigned short x, unsigned short y);
 };
 
 #endif
