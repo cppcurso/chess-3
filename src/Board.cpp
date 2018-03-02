@@ -43,3 +43,7 @@ void Board::print(){
     std::cout << "\n";
     }
 }
+
+Cell Board::getCell(unsigned short i, unsigned short j) {
+    return cells[i][j];
+}

@@ -27,5 +27,6 @@ public:
     bool valid(/*xPos, yPos, Piece*/);
     void print();
     void move(/*xPos, yPos, Piece*/);
+    Cell getCell(unsigned short i, unsigned short j);
 };
 #endif
