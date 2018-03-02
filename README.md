@@ -1,4 +1,4 @@
-# Chess 3
+# :banana: Chess 3
 Chess game in C++ by row 3
 ## Developers
 - Ireneo García Ferrer
