@@ -14,7 +14,6 @@
 using namespace std;
 
 class Board {
-private:
     Cell cells[8][8];
     Board(){}; // private constructor to avoid instantiations
     Board(const Board& b);//copy constructor without implement
