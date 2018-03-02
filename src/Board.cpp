@@ -1,5 +1,5 @@
 #include "Board.h"
-
+#include <iomanip>
 //Board::Board() {}
 
 void Board::init(){
@@ -31,13 +31,13 @@ void Board::init(){
 
 void Board::print(){
     for (size_t i = 0; i < 8; i++) {
+        std::cout << setw(20);
         for (size_t j = 0; j < 8; j++) {
-            if(cells[i][j].getPiece()== NULL) {
-                std::cout << " ";
-            }else{
-            std::cout << cells[i][j].getPiece()->getFigure();
-            std::cout << cells[i][j].getPiece()->getColour();
-            std::cout << "--";
+                if(cells[i][j].getPiece()== NULL) {
+                    std::cout << "[" << "  " << "]" ;
+                } else {
+                    std::cout <<  "[" << cells[i][j].getPiece()->getFigure();
+                    std::cout << cells[i][j].getPiece()->getColour() << "]";
             }
         }
     std::cout << "\n";
