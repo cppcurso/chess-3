@@ -6,6 +6,7 @@
 
 
 class Piece {
+friend class Board;
 protected:
     unsigned short x, y;
     bool black;
