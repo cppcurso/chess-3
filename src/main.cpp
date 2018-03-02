@@ -5,6 +5,6 @@
 
 int main() {
     Board::getInstance().init();
-    Board::getInstance().print();
-    Board::getInstance().valid(3,3, 2,5);
+    Board::getInstance().moveOnBoard(0,3, 2,5);
+
 }

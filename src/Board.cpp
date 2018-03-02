@@ -27,6 +27,7 @@ void Board::init(){
     for (size_t i = 0; i < 8; i++) {
         cells[1][i].setPiece(new Pawn(1,i,1));
     }
+    print();
 }
 
 void Board::print(){
@@ -61,7 +62,11 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
     return true;
 }
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
-    this->cells[x0][y0].getPiece()->move(x,y);
-    this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
-    this->cells[x0][y0].setCellToNull();
+    if(valid(x0,y0,x,y)){
+        this->cells[x0][y0].getPiece()->move(x,y);
+        this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
+        this->cells[x0][y0].setCellToNull();
+        print();
+    }
+
 }
