@@ -1,6 +1,6 @@
-# chess-3
+# Chess 3
 Chess game in C++ by row 3
-# Developers
+## Developers
 - Ireneo García Ferrer
 - Jorge Castellano Suárez
 - Daniel Sánchez Leal
