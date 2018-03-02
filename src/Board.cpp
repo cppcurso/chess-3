@@ -49,11 +49,11 @@ Cell Board::getCell(unsigned short x, unsigned short y) {
 }
 
 bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
-    if (x0 == x && y0 == y
-        || x0 > 7 && y0 > 7
-        || x > 7 && y > 7
-        || !getCell(x0,y0)->valid(x,y)
-        || getCell(x0,y0)->isEmpty()){
+    if ((x0 == x && y0 == y)
+        || (x0 > 7 && y0 > 7)
+        || (x > 7 && y > 7)
+        || (!getCell(x0,y0).getPiece()->valid(x,y))
+        || (getCell(x0,y0).isEmpty())){
             return false;
     }
     return true;
