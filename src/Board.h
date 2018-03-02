@@ -14,13 +14,19 @@
 using namespace std;
 
 class Board {
-private:
     Cell cells[8][8];
+    Board(){}; // private constructor to avoid instantiations
+    Board(const Board& b);//copy constructor without implement
+    void operator=(const Board& b); // Operator=  without implement
+
 public:
+    static Board& getInstance() {
+        static Board instance;
+        return instance;
+    }
     void init(); // inicializar el tablero
     bool valid(/*xPos, yPos, Piece*/);
     void print();
     void move(/*xPos, yPos, Piece*/);
 };
-
 #endif
