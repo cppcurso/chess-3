@@ -24,9 +24,14 @@ public:
         return instance;
     }
     void init(); // inicializar el tablero
-    bool valid(/*xPos, yPos, Piece*/);
+    bool valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y);
     void print();
+<<<<<<< HEAD
     void moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y);
     Cell getCell(unsigned short i, unsigned short j);
+=======
+    void move(/*xPos, yPos, Piece*/);
+    Cell getCell(unsigned short x, unsigned short y);
+>>>>>>> b62e00f35bb899d83e40ad2ccb9cf6f80f93dbfa
 };
 #endif
