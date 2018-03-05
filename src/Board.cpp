@@ -77,13 +77,13 @@ void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, 
 }
 bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
   switch(cells[x0][y0].getPiece()->getFigure()){
-      case 'P':
+    case 'P':
           return false;
-      case 'K':
+    case 'K':
           return false;
-      case 'Q':
+    case 'Q':
           return false;
-      case 'B':
+    case 'B':
         if (x < x0 && y > y0){  //First quadrant
             unsigned short move = (x0-x);
             for (unsigned short i = 0; i < move; i++) {
@@ -129,7 +129,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         return false;
         }
-      case 'R':
+    case 'R':
         if(x0 < x && y0 == y){ // Move down.
             unsigned short move = x-x0;
             for (unsigned short i=0; i<move; i++){
@@ -170,9 +170,9 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             }
             return false;
         }
-      case 'k':
+    case 'k':
           return false;
-      default:
+    default:
           return false;
   }
 
