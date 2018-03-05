@@ -82,7 +82,90 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
     case 'K':
           return false;
     case 'Q':
-          return false;
+        if (x < x0 && y > y0){  //First quadrant
+            unsigned short move = (x0-x);
+            for (unsigned short i = 0; i < move; i++) {
+                x0--;
+                y0++;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (x < x0 && y < y0){  //Second quadrant
+            unsigned short move=(x0-x);
+            for (unsigned short i = 0; i < move; i++) {
+                x0--;
+                y0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (x > x0 && y < y0){  //Third quadrant
+            unsigned short move=(x-x0);
+            for (unsigned short i = 0; i < move; i++) {
+                x0++;
+                y0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (x > x0 && y > y0){   //Fourth quadrant
+            unsigned short move=(x-x0);
+            for (unsigned short i = 0; i < move; i++) {
+                x0++;
+                y0++;
+            if (!getCell(x0,y0).isEmpty()){
+                return true;
+            }
+        }
+        return false;
+        }
+        if(x0 < x && y0 == y){ // Move down.
+            unsigned short move = x-x0;
+            for (unsigned short i=0; i<move; i++){
+                x0++;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if(x0 > x && y0 == y){ // Move up.
+            unsigned short move = x0-x;
+            for (unsigned short i=0; i<move; i++){
+                x0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if(x0 == x && y0 < y){ // Move to the right.
+            unsigned short move = y-y0;
+            for (unsigned short i=0; i<move; i++){
+                y0++;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if(x0 == x && y0 > y){ // Move to the left.
+            unsigned short move = y0-y;
+            for (unsigned short i=0; i<move; i++){
+                y0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
     case 'B':
         if (x < x0 && y > y0){  //First quadrant
             unsigned short move = (x0-x);
@@ -95,7 +178,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             }
             return false;
         }
-        if (x<x0 && y<y0){  //Second quadrant
+        if (x < x0 && y < y0){  //Second quadrant
             unsigned short move=(x0-x);
             for (unsigned short i = 0; i < move; i++) {
                 x0--;
@@ -107,7 +190,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             return false;
         }
 
-        if (x>x0 && y<y0){  //Third quadrant
+        if (x > x0 && y < y0){  //Third quadrant
             unsigned short move=(x-x0);
             for (unsigned short i = 0; i < move; i++) {
                 x0++;
@@ -118,7 +201,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             }
             return false;
         }
-        if (x>x0 && y>y0){   //Fourth quadrant
+        if (x > x0 && y > y0){   //Fourth quadrant
             unsigned short move=(x-x0);
             for (unsigned short i = 0; i < move; i++) {
                 x0++;
@@ -127,7 +210,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
                 return true;
             }
         }
-        return false;
+            return false;
         }
     case 'R':
         if(x0 < x && y0 == y){ // Move down.
