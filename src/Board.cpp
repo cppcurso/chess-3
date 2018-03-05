@@ -77,9 +77,11 @@ void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, 
 bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
   switch(cells[x0][y0].getPiece()->getFigure()){
     case 'P':
-        if (!getCell(x,y).isEmpty()){
+        if ((x == (x0 + 1) && y == y0) || (x == (x0 - 1) && y == y0)) {
+            if (!getCell(x,y).isEmpty()){
                 std::cout << "THERE IS COLLISION" << '\n';
                 return true;
+            }
         }
         return false;
     case 'K':

@@ -17,7 +17,7 @@ public:
     std::string getColour();
     std::string getName();
     char getFigure();
-    void move (unsigned short x, unsigned short y);
+    virtual void move (unsigned short x, unsigned short y);
     virtual bool valid (unsigned short x, unsigned short y) = 0;
 };
 /* TO DO
