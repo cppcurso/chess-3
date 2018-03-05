@@ -50,11 +50,11 @@ Cell Board::getCell(unsigned short x, unsigned short y) {
 }
 
 bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
-    if ((x0 == x && y0 == y)
-        || (x0 > 7 || y0 > 7)
-        || (x > 7 || y > 7)
-        || (getCell(x0,y0).isEmpty())
-        || (!getCell(x,y).isEmpty() && (getCell(x0,y0).getPiece()->getColour() == getCell(x,y).getPiece()->getColour()))
+    if ((x0 == x && y0 == y)    // Keeps in place
+        || (x0 > 7 || y0 > 7)   // Out of board from origin
+        || (x > 7 || y > 7)     // Out of board
+        || (getCell(x0,y0).isEmpty())   // Origin not empty
+        || (!getCell(x,y).isEmpty() && (getCell(x0,y0).getPiece()->getColour()  == getCell(x,y).getPiece()->getColour()))   
         || (!getCell(x0,y0).getPiece()->valid(x,y))){
             std::cout << "INCORRECT MOVEMENT" << '\n';
             return false;
