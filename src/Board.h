@@ -26,7 +26,8 @@ public:
     void init(); // inicializar el tablero
     bool valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y);
     void print();
-    void moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y);    
+    void moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y);
     Cell getCell(unsigned short x, unsigned short y);
+    bool thereColision(unsigned short x, unsigned short y);
 };
 #endif

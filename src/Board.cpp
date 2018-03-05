@@ -63,11 +63,32 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
     return true;
 }
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
-    if(valid(x0,y0,x,y)){
+    if(valid(x0,y0,x,y)&& thereColision(x,y)){
+
         this->cells[x0][y0].getPiece()->move(x,y);
         this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
         this->cells[x0][y0].setCellToNull();
+
         print();
     }
+
+}
+bool thereColision(unsigned short x, unsigned short y){
+  switch(figure){
+      case 'P':
+          return "pawn";
+      case 'K':
+          return "king";
+      case 'Q':
+          return "queen";
+      case 'B':
+          return "bishop";
+      case 'R':
+          return "rook";
+      case 'k':
+          return "knight";
+      default:
+          return "";
+  }
 
 }
