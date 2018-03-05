@@ -54,7 +54,7 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
         || (x0 > 7 || y0 > 7)   // Out of board from origin
         || (x > 7 || y > 7)     // Out of board
         || (getCell(x0,y0).isEmpty())   // Origin not empty
-        || (!getCell(x,y).isEmpty() && (getCell(x0,y0).getPiece()->getColour()  == getCell(x,y).getPiece()->getColour()))   
+        || (!getCell(x,y).isEmpty() && (getCell(x0,y0).getPiece()->getColour()  == getCell(x,y).getPiece()->getColour()))
         || (!getCell(x0,y0).getPiece()->valid(x,y))){
             std::cout << "INCORRECT MOVEMENT" << '\n';
             return false;
@@ -84,53 +84,50 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
       case 'Q':
           return false;
       case 'B':
-
-              //Primer cuadrante
-        if (x<x0 && y>y0){
-          unsigned short move=(x0-x);
-          for (unsigned short i = 0; i < move; i++) {
-          x0--;
-          y0++;
-          if (!getCell(x0,y0).isEmpty()){
-            return true;
-          }
-          }
-          return false;
+        if (x < x0 && y > y0){  //First quadrant
+            unsigned short move = (x0-x);
+            for (unsigned short i = 0; i < move; i++) {
+                x0--;
+                y0++;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
         }
-        //Segundo cuadrante
-        if (x<x0 && y<y0){
-          unsigned short move=(x0-x);
-          for (unsigned short i = 0; i < move; i++) {
-            x0--;
-            y0--;
-            if (!getCell(x0,y0).isEmpty()){
-              return true;
-            }
-            }
-            return false;
-          }
-        //Tercer cuadrante
-        if (x>x0 && y<y0){
-          unsigned short move=(x-x0);
-          for (unsigned short i = 0; i < move; i++) {
-            x0++;
-            y0--;
-           if (!getCell(x0,y0).isEmpty()){
-            return true;
-          }
-          }
-          return false;
-        }      //Cuarte cuadrante
-        if (x>x0 && y>y0){
-          unsigned short move=(x-x0);
-          for (unsigned short i = 0; i < move; i++) {
-            x0++;
-            y0++;
-            if (!getCell(x0,y0).isEmpty()){
-              return true;
-            }
+        if (x<x0 && y<y0){  //Second quadrant
+            unsigned short move=(x0-x);
+            for (unsigned short i = 0; i < move; i++) {
+                x0--;
+                y0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
             }
             return false;
+        }
+
+        if (x>x0 && y<y0){  //Third quadrant
+            unsigned short move=(x-x0);
+            for (unsigned short i = 0; i < move; i++) {
+                x0++;
+                y0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (x>x0 && y>y0){   //Fourth quadrant
+            unsigned short move=(x-x0);
+            for (unsigned short i = 0; i < move; i++) {
+                x0++;
+                y0++;
+            if (!getCell(x0,y0).isEmpty()){
+                return true;
+            }
+        }
+        return false;
         }
       case 'R':
         if(x0 < x && y0 == y){ // Move down.
