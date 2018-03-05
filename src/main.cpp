@@ -20,12 +20,15 @@ int main() {
 //     Board::getInstance().moveOnBoard(0,2, 1,1); // Bishop1
 //     Board::getInstance().moveOnBoard(0,1, 2,0); // Knight1
 //     Board::getInstance().moveOnBoard(2,1, 0,1); // Rook1 FAIL
-do{
-std::cout << "Ficha que quieres mover" << '\n';
-std::string piecexy;
-cin<<piecexy;
-std::cout << "Donde quieres moverla" << '\n';
-std::string coord;
-Board::getInstance().moveOnBoard((unsigned short)atoi(piecexy[0]),(unsigned short)atoi(piecexy[1]),(unsigned short) atoi(coord[0]),(unsigned short)atoi(coord[1])); // Pawn1
-}while(true);
+    do{
+        std::string piecexy;
+        std::string coord;
+        std::cout << "Ficha que quieres mover" << '\n';
+        cin>>piecexy;
+        std::cout << "Donde quieres moverla" << '\n';
+        cin>>coord;
+        Board::getInstance().moveOnBoard((unsigned short)piecexy[0],(unsigned short)piecexy[1],
+        (unsigned short)coord[0],(unsigned short)coord[1]); // Pawn1
+
+    }while(true);
 }
