@@ -12,7 +12,7 @@ bool Pawn::valid(unsigned short x, unsigned short y){
     	return true;
     }
 
-    if ( !getCell(x, y).isEmpty() ) {
+    if (!Board::getInstance().getCell(x, y).isEmpty()) {
         if ( !black && this->x - 1 == x && this->y - 1 == y ){  // Up-Left eat
             return true;
         }
