@@ -63,32 +63,73 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
     return true;
 }
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
-    if(valid(x0,y0,x,y)&& thereColision(x,y)){
+    if(valid(x0,y0,x,y)&& !thereIsCollision(x0,y0,x,y)){
 
         this->cells[x0][y0].getPiece()->move(x,y);
         this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
         this->cells[x0][y0].setCellToNull();
 
         print();
+    } else {
+        std::cout << "THERE IS COLLISION" << '\n';
     }
 
 }
-bool thereColision(unsigned short x, unsigned short y){
-  switch(figure){
+bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
+  switch(cells[x0][y0].getPiece()->getFigure()){
       case 'P':
-          return "pawn";
+          return false;
       case 'K':
-          return "king";
+          return false;
       case 'Q':
-          return "queen";
+          return false;
       case 'B':
-          return "bishop";
+          return false;
       case 'R':
-          return "rook";
+        if(x0 < x && y0 == y){ // Move down.
+            unsigned short move = x-x0;
+            for (unsigned short i=0; i<move; i++){
+                x0++;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if(x0 > x && y0 == y){ // Move up.
+            unsigned short move = x0-x;
+            for (unsigned short i=0; i<move; i++){
+                x0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if(x0 == x && y0 < y){ // Move to the right.
+            unsigned short move = y-y0;
+            for (unsigned short i=0; i<move; i++){
+                y0++;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        if(x0 == x && y0 > y){ // Move to the left.
+            unsigned short move = y0-y;
+            for (unsigned short i=0; i<move; i++){
+                y0--;
+                if (!getCell(x0,y0).isEmpty()){
+                    return true;
+                }
+            }
+            return false;
+        }
       case 'k':
-          return "knight";
+          return false;
       default:
-          return "";
+          return false;
   }
 
 }
