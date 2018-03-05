@@ -54,7 +54,7 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
         || (x0 > 7 || y0 > 7)
         || (x > 7 || y > 7)
         || (getCell(x0,y0).isEmpty())
-        || (getCell(x0,y0).getPiece()->getColour() == getCell(x,y).getPiece()->getColour())
+        || (!getCell(x,y).isEmpty() && (getCell(x0,y0).getPiece()->getColour() == getCell(x,y).getPiece()->getColour()))
         || (!getCell(x0,y0).getPiece()->valid(x,y))){
             std::cout << "INCORRECT MOVEMENT" << '\n';
             return false;
