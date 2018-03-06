@@ -7,6 +7,7 @@
 class Chess: public Game{
 
 public:
+    friend class Board;
     bool checkMate;
     int turnNumber;
     Chess() : Game(2) {}

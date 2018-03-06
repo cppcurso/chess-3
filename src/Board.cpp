@@ -49,15 +49,22 @@ Cell Board::getCell(unsigned short x, unsigned short y) {
     return cells[x][y];
 }
 
+// bool Board::isBlackPiece(unsigned short x0, unsigned short y0){
+//     if(getCell(x0,y0).getPiece()->black){
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
 bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
     if ((x0 == x && y0 == y)    // Keeps in place
         || (x0 > 7 || y0 > 7)   // Out of board from origin
         || (x > 7 || y > 7)     // Out of board
         || (getCell(x0,y0).isEmpty())   // Origin not empty
-        || thereIsCollision(x0,y0,x,y)
-        || !isYourColor(x0,y0)
         || (!getCell(x,y).isEmpty() && (getCell(x0,y0).getPiece()->getColour()  == getCell(x,y).getPiece()->getColour()))
-        || (!getCell(x0,y0).getPiece()->valid(x,y))){
+        || (!getCell(x0,y0).getPiece()->valid(x,y))
+        || (thereIsCollision(x0,y0,x,y))){
             std::cout << "INCORRECT MOVEMENT" << '\n';
             return false;
     }
@@ -65,21 +72,7 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
     return true;
 }
 
-bool Board::isYourColor(unsigned short x0, unsigned short y0){
-    if (turnNumber % 2 == 0) {
-        if(!getCell(x0,y0).getPiece()->black){
-            return true;
-    } else {
-        if(getCell(x0,y0).getPiece()->black){
-            return true;
-        }}
-    std::cout << "Esta ficha no es de tu color" << '\n';
-    return false;
-    }
 
-
-
-}
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
 
         this->cells[x0][y0].getPiece()->move(x,y);

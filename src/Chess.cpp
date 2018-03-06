@@ -46,14 +46,20 @@ void Chess::turn() {
     }
 }
 void Chess::moveAsk() {
+    bool isValid=false;
+    bool isBlack=false;
     std::string piecexy;
     std::string coord;
+    do{
     std::cout << "Ficha que quieres mover" << '\n';
     cin>>piecexy;
     std::cout << "Donde quieres moverla" << '\n';
     cin>>coord;
-    Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),
-    charToShort(coord[0]),charToShort(coord[1])); // Pawn1
+    isValid=Board::valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
+    isBlack=Board::getCell(piecexy[0],piecexy[1]).getPiece()->black);
+}while(!isValid ||(turnNumber % 2 == 0 && isBlack));
+
+    Board::moveOnBoard(piecexy[0],piecexy[1],coord[0],coord[1]); // Pawn1
 }
 
 bool Chess::end() {
