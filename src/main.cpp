@@ -3,30 +3,13 @@
 #include "Board.h"
 #include "Piece.h"
 #include "Rook.h"
+#include "Game.h"
+#include "Chess.h"
 
-unsigned short charToShort(char letter){
-    switch (letter) {
-        case'0':
-        return 0;
-        case '1':
-        return 1;
-        case '2':
-        return 2;
-        case '3':
-        return 3;
-        case '4':
-        return 4;
-        case '5':
-        return 5;
-        case '6':
-        return 6;
-        case '7':
-        return 7;
-    }
-}
 
 int main() {
     Board::getInstance().init();
+<<<<<<< HEAD
     // COLLISION TEST FOR ROOK
     // Board::getInstance().moveOnBoard(1,1, 2,1); // Pawn1
     // Board::getInstance().moveOnBoard(0,2, 1,1); // Pawn1
@@ -72,6 +55,11 @@ int main() {
     } while (true);*/
 <<<<<<< HEAD
 =======
+=======
+    Chess chessGame;
+    std::cout << "Partida 1" << '\n';
+        chessGame.play();
+>>>>>>> 4692dfa751adc2f1f7f0169cd6f3556721543af3
 
 >>>>>>> a711bda14041bdf9cc391a208ee75d8dc5be102e
 }
