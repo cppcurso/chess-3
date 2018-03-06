@@ -1,4 +1,5 @@
 #include "Chess.h"
+#include <iomanip>
 
 unsigned short Chess::charToShort(char letter){
     switch (letter) {
@@ -35,8 +36,10 @@ void Chess::start() {
 void Chess::turn() {
     if (turnNumber % 2 == 0) {
         std::cout << "Mueve jugador 1" << '\n';
+        blackTurn=false;
     } else {
         std::cout << "Mueve jugador 2" << '\n';
+        blackTurn=true;
     }
 
     turnNumber++;
@@ -55,11 +58,14 @@ void Chess::moveAsk() {
     cin>>piecexy;
     std::cout << "Donde quieres moverla" << '\n';
     cin>>coord;
-    isValid=Board::valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
-    isBlack=Board::getCell(piecexy[0],piecexy[1]).getPiece()->black);
-}while(!isValid ||(turnNumber % 2 == 0 && isBlack));
+    isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
+    isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
+    if (isBlack!=blackTurn){
+        std::cout <<setw(50)<<"Esta ficha no es de tu color" << '\n';
+    }
+}while(!isValid || (isBlack!=blackTurn));
 
-    Board::moveOnBoard(piecexy[0],piecexy[1],coord[0],coord[1]); // Pawn1
+    Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1])); // Pawn1
 }
 
 bool Chess::end() {

@@ -68,7 +68,6 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
             std::cout << "INCORRECT MOVEMENT" << '\n';
             return false;
     }
-    std::cout << "CORRECT MOVEMENT" << '\n';
     return true;
 }
 

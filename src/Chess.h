@@ -3,13 +3,15 @@
 
 #include "Game.h"
 #include "Board.h"
-
+#include "Piece.h"
 class Chess: public Game{
 
 public:
     friend class Board;
+    friend class Piece;
     bool checkMate;
-    int turnNumber;
+    int turnNumber=0;
+    bool blackTurn=false;
     Chess() : Game(2) {}
     unsigned short charToShort(char letter);
     void start();

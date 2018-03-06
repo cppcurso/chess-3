@@ -9,9 +9,10 @@ class Piece {
 friend class Board;
 protected:
     unsigned short x, y;
-    bool black;
+
     char figure;
 public:
+    bool black;
     Piece(unsigned short x, unsigned short y , bool colour = true);
     std::string getColour();
     std::string getName();
