@@ -62,6 +62,7 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
     std::cout << "CORRECT MOVEMENT" << '\n';
     return true;
 }
+
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
     if(valid(x0,y0,x,y)&& !thereIsCollision(x0,y0,x,y)){
 
@@ -70,15 +71,19 @@ void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, 
         this->cells[x0][y0].setCellToNull();
 
         print();
-    } else {
-        std::cout << "THERE IS COLLISION" << '\n';
     }
-
 }
+
 bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
   switch(cells[x0][y0].getPiece()->getFigure()){
     case 'P':
-          return false;
+        if ((x == (x0 + 1) && y == y0) || (x == (x0 - 1) && y == y0)) {
+            if (!getCell(x,y).isEmpty()){
+                std::cout << "THERE IS COLLISION" << '\n';
+                return true;
+            }
+        }
+        return false;
     case 'K':
           return false;
     case 'Q':
@@ -173,6 +178,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
                 x0--;
                 y0++;
                 if (!getCell(x0,y0).isEmpty()){
+                    std::cout << "THERE IS COLLISION" << '\n';
                     return true;
                 }
             }
@@ -184,6 +190,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
                 x0--;
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
+                    std::cout << "THERE IS COLLISION" << '\n';
                     return true;
                 }
             }
@@ -196,6 +203,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
                 x0++;
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
+                    std::cout << "THERE IS COLLISION" << '\n';
                     return true;
                 }
             }
@@ -207,6 +215,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
                 x0++;
                 y0++;
             if (!getCell(x0,y0).isEmpty()){
+                std::cout << "THERE IS COLLISION" << '\n';
                 return true;
             }
         }
@@ -218,6 +227,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             for (unsigned short i=0; i<move; i++){
                 x0++;
                 if (!getCell(x0,y0).isEmpty()){
+                    std::cout << "THERE IS COLLISION" << '\n';
                     return true;
                 }
             }
@@ -228,6 +238,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             for (unsigned short i=0; i<move; i++){
                 x0--;
                 if (!getCell(x0,y0).isEmpty()){
+                    std::cout << "THERE IS COLLISION" << '\n';
                     return true;
                 }
             }
@@ -238,6 +249,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             for (unsigned short i=0; i<move; i++){
                 y0++;
                 if (!getCell(x0,y0).isEmpty()){
+                    std::cout << "THERE IS COLLISION" << '\n';
                     return true;
                 }
             }
@@ -248,6 +260,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
             for (unsigned short i=0; i<move; i++){
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
+                    std::cout << "THERE IS COLLISION" << '\n';
                     return true;
                 }
             }
