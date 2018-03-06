@@ -54,6 +54,8 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
         || (x0 > 7 || y0 > 7)   // Out of board from origin
         || (x > 7 || y > 7)     // Out of board
         || (getCell(x0,y0).isEmpty())   // Origin not empty
+        || thereIsCollision(x0,y0,x,y)
+        || !isYourColor(x0,y0)
         || (!getCell(x,y).isEmpty() && (getCell(x0,y0).getPiece()->getColour()  == getCell(x,y).getPiece()->getColour()))
         || (!getCell(x0,y0).getPiece()->valid(x,y))){
             std::cout << "INCORRECT MOVEMENT" << '\n';
@@ -79,14 +81,11 @@ bool Board::isYourColor(unsigned short x0, unsigned short y0){
 
 }
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
-    if(valid(x0,y0,x,y)&& !thereIsCollision(x0,y0,x,y)){
 
         this->cells[x0][y0].getPiece()->move(x,y);
         this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
         this->cells[x0][y0].setCellToNull();
-
         print();
-    }
 }
 
 bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
