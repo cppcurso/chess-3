@@ -3,8 +3,8 @@ CC = g++
 CFLAGS = -Wall -c -std=c++11
 TARGET = main
 
-$(TARGET): $(TARGET).o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Board.o
-	$(CC) -Wall $(TARGET).o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Board.o -o $(TARGET)
+$(TARGET): $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o  Chess.o Game.o
+	$(CC) -Wall $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o  Chess.o Game.o   -o $(TARGET)
 
 $(TARGET).o: $(TARGET).cpp
 	$(CC) $(CFLAGS) $(TARGET).cpp
@@ -35,6 +35,12 @@ Pawn.o: Pawn.cpp Pawn.h
 
 Board.o: Board.cpp Board.h
 	$(CC) $(CFLAGS) Board.cpp
+
+Game.o: Game.cpp Game.h
+	$(CC) $(CFLAGS) Game.cpp
+
+Chess.o: Chess.cpp Chess.h
+	$(CC) $(CFLAGS) Chess.cpp
 
 # .PHONY evita que make trate clean como un target
 .PHONY: clean
