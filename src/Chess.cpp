@@ -18,6 +18,10 @@ unsigned short Chess::charToShort(char letter){
         return 6;
         case '7':
         return 7;
+        //return 20 para forzar el error de movimiento
+        //si el valor introducido no corresponde al tablero
+        default:
+        return 20;
     }
 }
 
