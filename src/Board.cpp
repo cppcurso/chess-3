@@ -31,8 +31,9 @@ void Board::init(){
 }
 
 void Board::print(){
+    std::cout << setw(20) << "  " << " 0 " <<"  1 "<< "  2 "<< "  3 "<<"  4 "<< "  5 "<< "  6 "<< "  7 " << '\n';
     for (size_t i = 0; i < 8; i++) {
-        std::cout << setw(20);
+        std::cout << setw(20) << i;
         for (size_t j = 0; j < 8; j++) {
                 if(cells[i][j].getPiece()== NULL) {
                     std::cout << "[" << "  " << "]" ;
