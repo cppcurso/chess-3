@@ -1,6 +1,6 @@
 
 CC = g++
-CFLAGS = -Wall -c -std=c++11 -lgtest lpthread
+CFLAGS = -Wall -c -std=c++11 -lgtest -lpthread
 TARGET = main
 
 $(TARGET): $(TARGET).o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Board.o
