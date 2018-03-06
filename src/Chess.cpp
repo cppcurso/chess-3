@@ -59,9 +59,12 @@ void Chess::moveAsk() {
     std::cout << "Donde quieres moverla" << '\n';
     cin>>coord;
     isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
-    isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
-    if (isBlack!=blackTurn){
-        std::cout <<setw(50)<<"Esta ficha no es de tu color" << '\n';
+    if(isValid){
+        isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
+
+        if (isBlack!=blackTurn){
+            std::cout <<setw(50)<<"Esta ficha no es de tu color" << '\n';
+        }
     }
 }while(!isValid || (isBlack!=blackTurn));
 

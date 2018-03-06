@@ -6,7 +6,7 @@ Cell::Cell () {
 }
 
 bool Cell::isEmpty(){
-    return (piece == NULL) ? true : false ;
+    return (piece == NULL);
 }
 
 Piece* Cell::getPiece() {
