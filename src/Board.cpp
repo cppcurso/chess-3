@@ -49,13 +49,6 @@ Cell Board::getCell(unsigned short x, unsigned short y) {
     return cells[x][y];
 }
 
-// bool Board::isBlackPiece(unsigned short x0, unsigned short y0){
-//     if(getCell(x0,y0).getPiece()->black){
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
 
 bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
     if ((x0 == x && y0 == y)    // Keeps in place
