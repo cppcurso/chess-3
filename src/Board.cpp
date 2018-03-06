@@ -63,6 +63,21 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
     return true;
 }
 
+bool Board::isYourColor(unsigned short x0, unsigned short y0){
+    if (turnNumber % 2 == 0) {
+        if(!getCell(x0,y0).getPiece()->black){
+            return true;
+    } else {
+        if(getCell(x0,y0).getPiece()->black){
+            return true;
+        }}
+    std::cout << "Esta ficha no es de tu color" << '\n';
+    return false;
+    }
+
+
+
+}
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
     if(valid(x0,y0,x,y)&& !thereIsCollision(x0,y0,x,y)){
 

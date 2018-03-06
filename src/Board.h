@@ -14,6 +14,7 @@
 using namespace std;
 
 class Board {
+    friend class Chess;
     Cell cells[8][8];
     Board(){}; // private constructor to avoid instantiations
     Board(const Board& b);//copy constructor without implement
@@ -24,6 +25,7 @@ public:
         return instance;
     }
     void init(); // inicializar el tablero
+    bool isYourColor(unsigned short x0, unsigned short y0);
     bool valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y);
     void print();
     void moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y);
