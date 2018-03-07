@@ -35,10 +35,10 @@ void Chess::start() {
 
 void Chess::turn() {
     if (turnNumber % 2 == 0) {
-        std::cout << "Mueve jugador 1" << '\n';
+        std::cout << "Move WHITE piece" << '\n';
         blackTurn=false;
     } else {
-        std::cout << "Mueve jugador 2" << '\n';
+        std::cout << "Move BLACK piece" << '\n';
         blackTurn=true;
     }
 
@@ -54,18 +54,22 @@ void Chess::moveAsk() {
     std::string piecexy;
     std::string coord;
     do{
-    std::cout << "Ficha que quieres mover" << '\n';
-    cin>>piecexy;
-    std::cout << "Donde quieres moverla" << '\n';
-    cin>>coord;
-    isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
-    isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
-    if (isBlack!=blackTurn){
-        std::cout <<setw(50)<<"Esta ficha no es de tu color" << '\n';
-    }
-}while(!isValid || (isBlack!=blackTurn));
-
+        std::cout << "Ficha que quieres mover" << '\n';
+        cin>>piecexy;
+        std::cout << "Donde quieres moverla" << '\n';
+        cin>>coord;
+        if (piecexy == "b") {
+            Board::getInstance().getBoard() = record.goBack(); // TODO
+        } else {
+            isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
+            isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
+            if (isBlack!=blackTurn){
+                std::cout <<setw(50)<<"Esta ficha no es de tu color" << '\n';
+            }
+        }
+    }while(!isValid || (isBlack!=blackTurn));
     Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1])); // Pawn1
+    record.saveBoard(Board::getInstance().getBoard()); // TODO guarda el tablero de este turno.
 }
 
 bool Chess::end() {
