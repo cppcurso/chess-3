@@ -281,3 +281,6 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
   }
 
 }
+array<array<Cell, 8>, 8> Board::getBoard() {
+    return cells;
+}
