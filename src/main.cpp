@@ -1,11 +1,12 @@
 #include <iostream>
 #include <stdlib.h>
+#include <gtest/gtest.h>
 #include "Board.h"
 #include "Piece.h"
 #include "Rook.h"
 #include "Game.h"
 #include "Chess.h"
-#include "external/gtest/gtest.h"
+
 
 
 int main(int argc, char **argv) {

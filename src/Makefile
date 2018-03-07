@@ -1,10 +1,11 @@
 
 CC = g++
-CFLAGS = -Wall -c -std=c++11 -lgtest -lpthread
+CFLAGS =  -Wall -c -std=c++11
+LIBS = -lgtest -lpthread
 TARGET = main
 
 $(TARGET): $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Chess.o Game.o Record.o
-	$(CC) -Wall $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Chess.o Game.o Record.o  -o $(TARGET)
+	$(CC) -Wall $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Chess.o Game.o Record.o  -o $(TARGET) $(LIBS)
 
 $(TARGET).o: $(TARGET).cpp
 	$(CC) $(CFLAGS) $(TARGET).cpp
