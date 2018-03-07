@@ -31,8 +31,9 @@ void Board::init(){
 }
 
 void Board::print(){
+    std::cout << setw(20) << "  " << " 0 " <<"  1 "<< "  2 "<< "  3 "<<"  4 "<< "  5 "<< "  6 "<< "  7 " << '\n';
     for (size_t i = 0; i < 8; i++) {
-        std::cout << setw(20);
+        std::cout << setw(20) << i;
         for (size_t j = 0; j < 8; j++) {
                 if(cells[i][j].getPiece()== NULL) {
                     std::cout << "[" << "  " << "]" ;
@@ -49,13 +50,6 @@ Cell Board::getCell(unsigned short x, unsigned short y) {
     return cells[x][y];
 }
 
-// bool Board::isBlackPiece(unsigned short x0, unsigned short y0){
-//     if(getCell(x0,y0).getPiece()->black){
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
 
 bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
     if ((x0 == x && y0 == y)    // Keeps in place
