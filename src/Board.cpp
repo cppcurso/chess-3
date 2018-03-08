@@ -28,6 +28,11 @@ void Board::init(){
         cells[1][i].setPiece(new Pawn(1,i,1));
     }
     print();
+    deadKing = false;
+}
+
+bool Board::isTheKingDead(){
+    return deadKing;
 }
 
 void Board::print(){
@@ -67,8 +72,8 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
 
 
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
-    if (this->cells[x][y].getPiece()->getFigure() == 'K') {
-        Chess::deadKing = true;
+    if (!getCell(x,y).isEmpty() && this->cells[x][y].getPiece()->getFigure() == 'K') {
+        deadKing = true;
     }
     this->cells[x0][y0].getPiece()->move(x,y);
     this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
@@ -91,7 +96,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
     case 'Q':
         if (x < x0 && y > y0){  //First quadrant
             unsigned short move = (x0-x);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0--;
                 y0++;
                 if (!getCell(x0,y0).isEmpty()){
@@ -103,7 +108,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if (x < x0 && y < y0){  //Second quadrant
             unsigned short move=(x0-x);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0--;
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
@@ -115,7 +120,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if (x > x0 && y < y0){  //Third quadrant
             unsigned short move=(x-x0);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0++;
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
@@ -127,7 +132,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if (x > x0 && y > y0){   //Fourth quadrant
             unsigned short move=(x-x0);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0++;
                 y0++;
             if (!getCell(x0,y0).isEmpty()){
@@ -139,7 +144,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if(x0 < x && y0 == y){ // Move down.
             unsigned short move = x-x0;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 x0++;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';
@@ -150,7 +155,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if(x0 > x && y0 == y){ // Move up.
             unsigned short move = x0-x;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 x0--;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';
@@ -161,7 +166,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if(x0 == x && y0 < y){ // Move to the right.
             unsigned short move = y-y0;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 y0++;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';
@@ -172,7 +177,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if(x0 == x && y0 > y){ // Move to the left.
             unsigned short move = y0-y;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';
@@ -184,7 +189,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
     case 'B':
         if (x < x0 && y > y0){  //First quadrant
             unsigned short move = (x0-x);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0--;
                 y0++;
                 if (!getCell(x0,y0).isEmpty()){
@@ -196,7 +201,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if (x < x0 && y < y0){  //Second quadrant
             unsigned short move=(x0-x);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0--;
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
@@ -209,7 +214,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
 
         if (x > x0 && y < y0){  //Third quadrant
             unsigned short move=(x-x0);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0++;
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
@@ -221,7 +226,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if (x > x0 && y > y0){   //Fourth quadrant
             unsigned short move=(x-x0);
-            for (unsigned short i = 0; i < move; i++) {
+            for (unsigned short i = 0; i < move-1; i++) {
                 x0++;
                 y0++;
             if (!getCell(x0,y0).isEmpty()){
@@ -234,7 +239,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
     case 'R':
         if(x0 < x && y0 == y){ // Move down.
             unsigned short move = x-x0;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 x0++;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';
@@ -245,7 +250,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if(x0 > x && y0 == y){ // Move up.
             unsigned short move = x0-x;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 x0--;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';
@@ -256,7 +261,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if(x0 == x && y0 < y){ // Move to the right.
             unsigned short move = y-y0;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 y0++;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';
@@ -267,7 +272,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
         }
         if(x0 == x && y0 > y){ // Move to the left.
             unsigned short move = y0-y;
-            for (unsigned short i=0; i<move; i++){
+            for (unsigned short i=0; i<move-1; i++){
                 y0--;
                 if (!getCell(x0,y0).isEmpty()){
                     std::cout << "THERE IS COLLISION" << '\n';

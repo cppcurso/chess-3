@@ -11,7 +11,7 @@
 #include "Pawn.h"
 #include <iomanip>
 #include <array>
-#include "Chess.h"
+// #include "Chess.h"
 
 
 using namespace std;
@@ -21,6 +21,7 @@ class Board {
     Board(){}; // private constructor to avoid instantiations
     Board(const Board& b);//copy constructor without implement
     void operator=(const Board& b); // Operator=  without implement
+    bool deadKing;
 public:
     array<array<Cell, 8>, 8> getBoard();
     void setBoard(array<array<Cell, 8>, 8> board);
@@ -32,6 +33,7 @@ public:
     //bool isBlackPiece(unsigned short x0, unsigned short y0);
     bool valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y);
     void print();
+    bool isTheKingDead();
     void moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y);
     Cell getCell(unsigned short x, unsigned short y);
     bool thereIsCollision(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y);

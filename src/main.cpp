@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include <gtest/gtest.h>
+// #include <gtest/gtest.h>
 #include "Board.h"
 #include "Piece.h"
 #include "Rook.h"
