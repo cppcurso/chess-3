@@ -1,5 +1,5 @@
 #include "Board.h"
-#include <iomanip>
+
 //Board::Board() {}
 
 void Board::init(){
@@ -285,4 +285,7 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
 }
 array<array<Cell, 8>, 8> Board::getBoard() {
     return cells;
+}
+void Board::setBoard(array<array<Cell, 8>, 8> board){
+    cells = board;
 }
