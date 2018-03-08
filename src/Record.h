@@ -1,11 +1,12 @@
 #include "Board.h"
-#include <stack>
+#include <vector>
+
 
 class Record {
-    friend class Board;
-    std::stack<array<array<Cell, 8>, 8>> boards;
+    std::vector<array<array<Cell, 8>, 8>> boards;
 public:
     Record ();
     void saveBoard(array<array<Cell, 8>, 8> cells);
-    array<array<Cell, 8>, 8> goBack();
+    std::vector<array<array<Cell, 8>, 8>> getBoards();
+    void show(array<array<Cell, 8>, 8> boardTemp, int i);
 };

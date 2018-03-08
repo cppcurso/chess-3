@@ -9,6 +9,7 @@
 #include "Queen.h"
 #include "King.h"
 #include "Pawn.h"
+#include <iomanip>
 #include <array>
 
 
@@ -21,6 +22,7 @@ class Board {
     void operator=(const Board& b); // Operator=  without implement
 public:
     array<array<Cell, 8>, 8> getBoard();
+    void setBoard(array<array<Cell, 8>, 8> board);
     static Board& getInstance() {
         static Board instance;
         return instance;

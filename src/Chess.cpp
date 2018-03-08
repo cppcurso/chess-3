@@ -44,23 +44,28 @@ void Chess::turn() {
 
     turnNumber++;
 
-    if (turnNumber == 10) {
+    if (turnNumber == 4) {
         checkMate = true;
     }
 }
+
 void Chess::moveAsk() {
     bool isValid=false;
     bool isBlack=false;
     std::string piecexy;
     std::string coord;
     do{
-        std::cout << "Ficha que quieres mover" << '\n';
+        std::cout << "Ficha que quieres mover, si no, pulse h para ver historial" << '\n';
         cin>>piecexy;
-        std::cout << "Donde quieres moverla" << '\n';
-        cin>>coord;
-        if (piecexy == "b") {
-            Board::getInstance().getBoard() = record.goBack(); 
-        } else {
+        if(piecexy == "h"){
+            array<array<Cell, 8>, 8> boardTemp;
+                for (size_t i = 0; i < record.getBoards().size(); i++) {
+                    boardTemp = record.getBoards()[i];
+                    record.show(boardTemp, i);
+                }
+        }else{
+            std::cout << "Donde quieres moverla" << '\n';
+            cin>>coord;
             isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
             if(isValid){
                 isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
@@ -80,5 +85,11 @@ bool Chess::end() {
 }
 
 void Chess::finish() {
+    array<array<Cell, 8>, 8> boardTemp;
     std::cout << "Jugador 1 ha ganado!" << '\n';
+    std::cout << "-----------------------SUMMARY-----------------------" << '\n';
+    for (size_t i = 0; i < record.getBoards().size(); i++) {
+        boardTemp = record.getBoards()[i];
+        record.show(boardTemp, i);
+    }
 }
