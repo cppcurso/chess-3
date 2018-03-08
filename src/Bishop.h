@@ -10,5 +10,4 @@ public:
     bool valid(unsigned short x, unsigned short y);
 };
 
-
 #endif

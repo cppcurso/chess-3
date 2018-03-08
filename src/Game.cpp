@@ -1,6 +1,5 @@
 #include "Game.h"
 
-
 void Game::play(){
    start();
    while (!end()) {

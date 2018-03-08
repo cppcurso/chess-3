@@ -3,8 +3,6 @@
 
 #include<iostream>
 
-
-
 class Piece {
 friend class Board;
 protected:

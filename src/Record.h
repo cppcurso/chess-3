@@ -1,7 +1,6 @@
 #include "Board.h"
 #include <vector>
 
-
 class Record {
     std::vector<array<array<Cell, 8>, 8>> boards;
 public:

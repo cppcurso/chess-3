@@ -1,7 +1,5 @@
 #include "Board.h"
 
-//Board::Board() {}
-
 void Board::init(){
     //White pieces
     cells[7][0].setPiece(new Rook(7,0,0));
@@ -55,7 +53,6 @@ Cell Board::getCell(unsigned short x, unsigned short y) {
     return cells[x][y];
 }
 
-
 bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y){
     if ((x0 == x && y0 == y)    // Keeps in place
         || (x0 > 7 || y0 > 7)   // Out of board from origin
@@ -69,7 +66,6 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
     }
     return true;
 }
-
 
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
     if (!getCell(x,y).isEmpty() && this->cells[x][y].getPiece()->getFigure() == 'K') {
@@ -288,9 +284,11 @@ bool Board::thereIsCollision(unsigned short x0, unsigned short y0, unsigned shor
   }
 
 }
+
 array<array<Cell, 8>, 8> Board::getBoard() {
     return cells;
 }
+
 void Board::setBoard(array<array<Cell, 8>, 8> board){
     cells = board;
 }

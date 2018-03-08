@@ -11,8 +11,6 @@
 #include "Pawn.h"
 #include <iomanip>
 #include <array>
-// #include "Chess.h"
-
 
 using namespace std;
 
@@ -38,4 +36,5 @@ public:
     Cell getCell(unsigned short x, unsigned short y);
     bool thereIsCollision(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y);
 };
+
 #endif

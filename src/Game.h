@@ -1,9 +1,6 @@
 #ifndef GAME_H_
 #define GAME_H_
 
-// #include "Piece.h"
-// #include "Board.h"
-
 class Game{
 
 protected:
@@ -21,6 +18,5 @@ public:
     void play();
 
 };
-
 
 #endif

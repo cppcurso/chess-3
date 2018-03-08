@@ -32,7 +32,6 @@ void Chess::start() {
     turnNumber = 0;
 }
 
-
 void Chess::turn() {
     if (turnNumber % 2 == 0) {
         std::cout << "Move WHITE piece" << '\n';
