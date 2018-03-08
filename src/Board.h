@@ -11,6 +11,7 @@
 #include "Pawn.h"
 #include <iomanip>
 #include <array>
+#include "Chess.h"
 
 
 using namespace std;
