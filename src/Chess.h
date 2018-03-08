@@ -11,7 +11,7 @@ public:
     Record record;
     friend class Board;
     friend class Piece;
-    bool checkMate;
+    bool deadKing = false;
     int turnNumber=0;
     bool blackTurn=false;
     Chess() : Game(2) {}

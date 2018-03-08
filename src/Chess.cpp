@@ -28,7 +28,7 @@ unsigned short Chess::charToShort(char letter){
 
 void Chess::start() {
     std::cout << "Colocando las piezas..." << '\n';
-    checkMate = false;
+    gameOver = false;
     turnNumber = 0;
 }
 
@@ -43,10 +43,6 @@ void Chess::turn() {
     }
 
     turnNumber++;
-
-    if (turnNumber == 10) {
-        checkMate = true;
-    }
 }
 void Chess::moveAsk() {
     bool isValid=false;
@@ -59,7 +55,7 @@ void Chess::moveAsk() {
         std::cout << "Donde quieres moverla" << '\n';
         cin>>coord;
         if (piecexy == "b") {
-            Board::getInstance().getBoard() = record.goBack(); 
+            Board::getInstance().getBoard() = record.goBack();
         } else {
             isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
             if(isValid){
@@ -72,13 +68,20 @@ void Chess::moveAsk() {
     }while(!isValid || (isBlack!=blackTurn));
     Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1])); // Pawn1
     record.saveBoard(Board::getInstance().getBoard());
+    if (deadKing == true) {
+        gameOver = true;
+    }
 }
 
 bool Chess::end() {
     std::cout << "Comprobando jaque mate..." << '\n';
-    return checkMate;
+    return gameOver;
 }
 
 void Chess::finish() {
-    std::cout << "Jugador 1 ha ganado!" << '\n';
+    if (turnNumber % 2 == 0) {
+        std::cout << "BLACK pieces won" << '\n';
+    } else {
+        std::cout << "WHITE pieces won" << '\n';
+    }
 }

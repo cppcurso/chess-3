@@ -5,6 +5,7 @@
 // #include "Board.h"
 
 class Game{
+    bool gameOver;
 protected:
     int players;
     virtual void start() = 0;
@@ -17,6 +18,7 @@ public:
     Game(int players) : players(players) {}
 
     void play();
+
 };
 
 
