@@ -28,6 +28,7 @@ unsigned short Chess::charToShort(char letter){
 
 void Chess::start() {
     std::cout << "Colocando las piezas..." << '\n';
+    deadKing = false;
     gameOver = false;
     turnNumber = 0;
 }

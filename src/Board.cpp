@@ -67,8 +67,8 @@ bool Board::valid(unsigned short x0, unsigned short y0, unsigned short x, unsign
 
 
 void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, unsigned short y){
-    if (this->cells[x][y].getPiece()->getFigure() == "K") {
-        deadKing = true;
+    if (this->cells[x][y].getPiece()->getFigure() == 'K') {
+        Chess::deadKing = true;
     }
     this->cells[x0][y0].getPiece()->move(x,y);
     this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
