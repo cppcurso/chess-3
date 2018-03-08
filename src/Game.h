@@ -5,8 +5,9 @@
 // #include "Board.h"
 
 class Game{
-    bool gameOver;
+
 protected:
+    bool gameOver;
     int players;
     virtual void start() = 0;
     virtual bool end() = 0;

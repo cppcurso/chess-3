@@ -28,7 +28,6 @@ unsigned short Chess::charToShort(char letter){
 
 void Chess::start() {
     std::cout << "Colocando las piezas..." << '\n';
-    deadKing = false;
     gameOver = false;
     turnNumber = 0;
 }
@@ -74,25 +73,26 @@ void Chess::moveAsk() {
     }while(!isValid || (isBlack!=blackTurn));
     Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1])); // Pawn1
     record.saveBoard(Board::getInstance().getBoard());
-    if (deadKing == true) {
+    if (Board::getInstance().isTheKingDead()) {
         gameOver = true;
     }
 }
 
 bool Chess::end() {
-    std::cout << "Comprobando jaque mate..." << '\n';
     return gameOver;
 }
 
 void Chess::finish() {
     array<array<Cell, 8>, 8> boardTemp;
-    if (turnNumber % 2 == 0) {
-        std::cout << "BLACK pieces won" << '\n';
-    } else {
-        std::cout << "WHITE pieces won" << '\n';
     std::cout << "-----------------------SUMMARY-----------------------" << '\n';
     for (size_t i = 0; i < record.getBoards().size(); i++) {
         boardTemp = record.getBoards()[i];
         record.show(boardTemp, i);
+    }
+    std::cout << '\n';
+    if (turnNumber % 2 == 0) {
+        std::cout << "BLACK pieces won" << '\n';
+    } else {
+        std::cout << "WHITE pieces won" << '\n';
     }
 }
