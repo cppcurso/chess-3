@@ -19,15 +19,14 @@ unsigned short Chess::charToShort(char letter){
         return 6;
         case '7':
         return 7;
-        //return 20 para forzar el error de movimiento
-        //si el valor introducido no corresponde al tablero
+
         default:
         return 20;
     }
 }
 
 void Chess::start() {
-    std::cout << "Colocando las piezas..." << '\n';
+    std::cout << "Putting the pieces..." << '\n';
     gameOver = false;
     turnNumber = 0;
 }
@@ -50,7 +49,7 @@ void Chess::moveAsk() {
     std::string piecexy;
     std::string coord;
     do{
-        std::cout << "Ficha que quieres mover, si no, pulse h para ver historial" << '\n';
+        std::cout << "Choose the piece to move or introduce h to view the history" << '\n';
         cin>>piecexy;
         if(piecexy == "h"){
             array<array<Cell, 8>, 8> boardTemp;
@@ -59,13 +58,13 @@ void Chess::moveAsk() {
                     record.show(boardTemp, i);
                 }
         }else{
-            std::cout << "Donde quieres moverla" << '\n';
+            std::cout << "Where do you want to move it?" << '\n';
             cin>>coord;
             isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
             if(isValid){
                 isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
                 if (isBlack!=blackTurn){
-                    std::cout <<setw(50)<<"Esta ficha no es de tu color" << '\n';
+                    std::cout <<setw(50)<<"This piece is not your color" << '\n';
                 }
             }
         }

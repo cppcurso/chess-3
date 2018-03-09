@@ -27,8 +27,7 @@ public:
         static Board instance;
         return instance;
     }
-    void init(); // inicializar el tablero
-    //bool isBlackPiece(unsigned short x0, unsigned short y0);
+    void init(); // initialize the board
     bool valid(unsigned short x0, unsigned short y0, unsigned short x, unsigned short y);
     void print();
     bool isTheKingDead();
