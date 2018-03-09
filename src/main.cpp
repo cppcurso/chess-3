@@ -16,6 +16,6 @@
 int main() {
     Board::getInstance().init();
     Chess chessGame;
-    std::cout << "Partida 1" << '\n';
+    std::cout << "==========  WELCOME TO THE CHESS GAME  ==========" << '\n';
     chessGame.play();
 }
