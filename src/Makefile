@@ -4,8 +4,8 @@ CFLAGS =  -Wall -c -std=c++11
 LIBS = -lgtest -lpthread
 TARGET = main
 
-$(TARGET): $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Chess.o Game.o Record.o
-	$(CC) -Wall $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Chess.o Game.o Record.o  -o $(TARGET) $(LIBS)
+$(TARGET): $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Chess.o Game.o Record.o Files.o
+	$(CC) -Wall $(TARGET).o Board.o Piece.o Cell.o Rook.o Knight.o Bishop.o Queen.o King.o Pawn.o Chess.o Game.o Record.o Files.o -o $(TARGET) $(LIBS)
 
 $(TARGET).o: $(TARGET).cpp
 	$(CC) $(CFLAGS) $(TARGET).cpp
@@ -45,6 +45,9 @@ Chess.o: Chess.cpp Chess.h
 
 Record.o: Record.cpp Record.h
 	$(CC) $(CFLAGS) Record.cpp
+
+Files.o: Files.cpp Files.h
+	$(CC) $(CFLAGS) Files.cpp
 
 # .PHONY evita que make trate clean como un target
 .PHONY: clean
