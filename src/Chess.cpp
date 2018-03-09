@@ -1,7 +1,7 @@
 #include "Chess.h"
 #include <iomanip>
 
-unsigned short Chess::charToShort(char letter){
+unsigned short Chess::charToShort(char letter) {
     switch (letter) {
         case'0':
         return 0;
@@ -34,42 +34,52 @@ void Chess::start() {
 void Chess::turn() {
     if (turnNumber % 2 == 0) {
         std::cout << "Move WHITE piece" << '\n';
-        blackTurn=false;
+        blackTurn = false;
     } else {
         std::cout << "Move BLACK piece" << '\n';
-        blackTurn=true;
+        blackTurn = true;
     }
 
     turnNumber++;
 }
 
 void Chess::moveAsk() {
-    bool isValid=false;
-    bool isBlack=false;
+    bool isValid = false;
+    bool isBlack = false;
     std::string piecexy;
     std::string coord;
-    do{
+    do {
         std::cout << "Choose the piece to move or introduce h to view the history" << '\n';
-        cin>>piecexy;
-        if(piecexy == "h"){
+        cin >> piecexy;
+        if (piecexy == "h") {
             array<array<Cell, 8>, 8> boardTemp;
-                for (size_t i = 0; i < record.getBoards().size(); i++) {
-                    boardTemp = record.getBoards()[i];
-                    record.show(boardTemp, i);
-                }
-        }else{
+            for (size_t i = 0; i < record.getBoards().size(); i++) {
+                boardTemp = record.getBoards()[i];
+                record.show(boardTemp, i);
+            }
+        } else {
             std::cout << "Where do you want to move it?" << '\n';
-            cin>>coord;
-            isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
-            if(isValid){
-                isBlack=Board::getInstance().getCell(charToShort(piecexy[0]),charToShort(piecexy[1])).getPiece()->black;
-                if (isBlack!=blackTurn){
+            cin >> coord;
+            isValid = Board::getInstance().valid(
+                charToShort(piecexy[0]),
+                charToShort(piecexy[1]),
+                charToShort(coord[0]),
+                charToShort(coord[1]));
+            if (isValid) {
+                isBlack = Board::getInstance().getCell(
+                    charToShort(piecexy[0]),
+                    charToShort(piecexy[1])).getPiece()->black;
+                if (isBlack!=blackTurn) {
                     std::cout <<setw(50)<<"This piece is not your color" << '\n';
                 }
             }
         }
-    }while(!isValid || (isBlack!=blackTurn));
-    Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1])); // Pawn1
+    } while(!isValid || (isBlack!=blackTurn));
+    Board::getInstance().moveOnBoard(
+        charToShort(piecexy[0]),
+        charToShort(piecexy[1]),
+        charToShort(coord[0]),
+        charToShort(coord[1])); // Pawn1
     record.saveBoard(Board::getInstance().getBoard());
     if (Board::getInstance().isTheKingDead()) {
         gameOver = true;
