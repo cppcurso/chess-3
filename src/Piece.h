@@ -15,6 +15,6 @@ public:
     std::string getName();
     char getFigure();
     virtual void move (unsigned short x, unsigned short y);
-    virtual bool valid (unsigned short x, unsigned short y) = 0;
+    virtual bool valid (unsigned short x, unsigned short y)=0;
 };
 #endif

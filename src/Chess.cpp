@@ -49,7 +49,7 @@ void Chess::moveAsk() {
     std::string piecexy;
     std::string coord;
     do{
-        std::cout << "Choose the piece to move or introduce h to view the history" << '\n';
+        std::cout << "Choose the piece to move or introduce h to view the history, e-> exit and save" << '\n';
         cin>>piecexy;
         if(piecexy == "h"){
             array<array<Cell, 8>, 8> boardTemp;
@@ -57,7 +57,11 @@ void Chess::moveAsk() {
                     boardTemp = record.getBoards()[i];
                     record.show(boardTemp, i);
                 }
-        }else{
+        } else if(piecexy=="e"){
+            power=false;
+
+        }
+        else{
             std::cout << "Where do you want to move it?" << '\n';
             cin>>coord;
             isValid=Board::getInstance().valid(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
@@ -68,11 +72,13 @@ void Chess::moveAsk() {
                 }
             }
         }
-    }while(!isValid || (isBlack!=blackTurn));
-    Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1])); // Pawn1
-    record.saveBoard(Board::getInstance().getBoard());
-    if (Board::getInstance().isTheKingDead()) {
-        gameOver = true;
+    }while((!isValid || (isBlack!=blackTurn)) && power);
+    if (power){
+        Board::getInstance().moveOnBoard(charToShort(piecexy[0]),charToShort(piecexy[1]),charToShort(coord[0]),charToShort(coord[1]));
+        record.saveBoard(Board::getInstance().getBoard());
+        if (Board::getInstance().isTheKingDead()) {
+            gameOver = true;
+        }
     }
 }
 

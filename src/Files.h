@@ -6,10 +6,12 @@
 #include <fstream>
 #include "Board.h"
 
+using namespace std;
+
 class Files{
 public:
-    void save(std::string name, std::vector<Piece*> pieces);
-    //void load(const char* name, T& data);
+    static void save(std::string name);
+    static void load(const char* name);
 };
 
 
