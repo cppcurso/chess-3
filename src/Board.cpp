@@ -74,6 +74,7 @@ void Board::moveOnBoard (unsigned short x0, unsigned short y0,unsigned short x, 
     this->cells[x0][y0].getPiece()->move(x,y);
     this->cells[x][y].setPiece(this->cells[x0][y0].getPiece());
     this->cells[x0][y0].setCellToNull();
+
     print();
 }
 
@@ -291,4 +292,16 @@ array<array<Cell, 8>, 8> Board::getBoard() {
 
 void Board::setBoard(array<array<Cell, 8>, 8> board){
     cells = board;
+}
+
+vector<Piece*> Board::piecesOnBoard(array<array<Cell, 8>, 8> cells){
+    std::vector<Piece*> pieces;
+    for (size_t i = 0; i < 8; i++) {
+        for (size_t j = 0; j < 8; j++) {
+            if (!cells[i][j].isEmpty()) {
+                pieces.push_back(cells[i][j].getPiece());
+            }
+        }
+    }
+    return pieces;
 }

@@ -7,7 +7,6 @@ class Piece {
 friend class Board;
 protected:
     unsigned short x, y;
-
     char figure;
 public:
     bool black;

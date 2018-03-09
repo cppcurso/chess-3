@@ -8,7 +8,7 @@
 
 class Files{
 public:
-    void save(std::string name, unsigned short length, std::vector<Piece> pieces);
+    void save(std::string name, std::vector<Piece*> pieces);
     //void load(const char* name, T& data);
 };
 
