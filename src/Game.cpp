@@ -1,10 +1,17 @@
 #include "Game.h"
 
+
 void Game::play(){
    start();
-   while (!end()) {
+   while (!end()&&power) {
        turn();
        moveAsk();
    }
-   finish();
+   if(!power){
+       Files::save("SavedGame");
+   }else{
+       finish();
+   }
+
+
 }
